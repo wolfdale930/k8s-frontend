@@ -11,7 +11,7 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
     ),
     containerTemplate(
       name: 'kubectl', 
-      image: 'bitnami/kubectl',
+      image: 'amaceog/kubectl',
       resourceRequestCpu: '100m',
       resourceLimitCpu: '300m',
       resourceRequestMemory: '300Mi',
