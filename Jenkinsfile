@@ -43,14 +43,10 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
 
         def REPOSITORY_URI = "areeb/frontend"
 
-        stage('Check running containers') {
-            container('kubectl') { 
-                sh 'kubectl get pods --all-namespaces'  
-            }
-            container('helm') { 
-                sh 'helm'
-            }
-        }  
+        stage('Check kubernetes') {
+          sh 'kubectl get pods -A'
+          sh 'helm'
+        }
 
         stage('Build Image'){
             container('docker'){
