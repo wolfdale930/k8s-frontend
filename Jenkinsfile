@@ -46,8 +46,8 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
 
         stage('Check running containers') {
           container('kubectl') {
-            kubectl get pods -A
-            helm
+            sh 'kubectl get pods -A'
+            sh 'helm'
           }
         }  
 
