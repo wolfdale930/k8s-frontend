@@ -43,10 +43,6 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
 
         def REPOSITORY_URI = "areeb/frontend"
 
-        stage('Get latest version of code') {
-          checkout scm
-        }
-
         stage('Check running containers') {
             container('kubectl') { 
                 sh 'kubectl get pods --all-namespaces'  
