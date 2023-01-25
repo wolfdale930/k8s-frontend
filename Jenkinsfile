@@ -33,11 +33,6 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
 
   volumes: [
     hostPathVolume(mountPath: '/usr/local/bin/helm', hostPath: '/usr/local/bin/helm'),
-    hostPathVolume(mountPath: '/.kube/config', hostPath: '/home/jenkins/config'),
-    hostPathVolume(mountPath: '/usr/local/bin/kubectl', hostPath: '/usr/local/bin/kubectl'),
-    hostPathVolume(mountPath: '/home/jenkins/ca.crt', hostPath: '/home/jenkins/ca.crt'),
-    hostPathVolume(mountPath: '/home/jenkins/client.crt', hostPath: '/home/jenkins/client.crt'),
-    hostPathVolume(mountPath: '/home/jenkins/client.key', hostPath: '/home/jenkins/client.key')
   ]
   ) {
     node('mypod') {
