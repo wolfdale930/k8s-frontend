@@ -45,7 +45,7 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
         def REPOSITORY_URI = "areeb/frontend"
 
         stage('Check running containers') {
-          sh 'kubectl get pods --all-namespaces' 
+          sh 'kubectl get pods -A' 
           sh 'helm'
         }  
 
