@@ -32,7 +32,7 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
   ],
 
   volumes: [
-    hostPathVolume(mountPath: '/usr/local/bin/helm', hostPath: '/usr/local/bin/helm'),
+    hostPathVolume(mountPath: '/.kube/config', hostPath: '/home/jenkins/config'),
   ]
   ) {
     node('mypod') {
