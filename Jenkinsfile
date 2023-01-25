@@ -41,6 +41,7 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
         def REPOSITORY_URI = "areeb/frontend"
 
         stage('Get latest version of code') {
+          sh 'which git'
           checkout scm
         }
         stage('Check running containers') {
