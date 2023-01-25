@@ -1,4 +1,4 @@
-podTemplate(label: 'mypod2', serviceAccount: 'jenkins-ci', containers: [ 
+podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [ 
     containerTemplate(
       name: 'docker', 
       image: 'docker', 
@@ -36,13 +36,10 @@ podTemplate(label: 'mypod2', serviceAccount: 'jenkins-ci', containers: [
     hostPathVolume(mountPath: '/.kube/config', hostPath: '/usr/local/jenkins/.kube/config')
   ]
   ) {
-    node('mypod2') {
+    node('mypod') {
 
         def REPOSITORY_URI = "areeb/frontend"
 
-        stage('Get latest version of code') {
-          checkout scm
-        }
         stage('Check running containers') {
             container('kubectl') { 
                 sh 'kubectl get pods --all-namespaces'  
