@@ -34,6 +34,7 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
   volumes: [
     hostPathVolume(mountPath: '/usr/local/bin/helm', hostPath: '/usr/local/bin/helm'),
     hostPathVolume(mountPath: '/.kube/config', hostPath: '/home/jenkins/config'),
+    hostPathVolume(mountPath: '/usr/local/bin/kubectl', hostPath: '/usr/local/bin/kubectl'),
     hostPathVolume(mountPath: '/home/jenkins/ca.crt', hostPath: '/home/jenkins/ca.crt'),
     hostPathVolume(mountPath: '/home/jenkins/client.crt', hostPath: '/home/jenkins/client.crt'),
     hostPathVolume(mountPath: '/home/jenkins/client.key', hostPath: '/home/jenkins/client.key')
@@ -44,12 +45,8 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
         def REPOSITORY_URI = "areeb/frontend"
 
         stage('Check running containers') {
-            container('kubectl') { 
-                sh 'kubectl get pods --all-namespaces'  
-            }
-            container('helm') { 
-                sh 'helm'
-            }
+          sh 'kubectl get pods --all-namespaces' 
+          sh 'helm'
         }  
 
         stage('Build Image'){
