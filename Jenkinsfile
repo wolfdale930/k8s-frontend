@@ -1,4 +1,4 @@
-podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [ 
+podTemplate(label: 'mypod2', serviceAccount: 'jenkins-ci', containers: [ 
     containerTemplate(
       name: 'docker', 
       image: 'docker', 
@@ -36,7 +36,7 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
     hostPathVolume(mountPath: '/.kube/config', hostPath: '/usr/local/jenkins/.kube/config')
   ]
   ) {
-    node('mypod') {
+    node('mypod2') {
 
         def REPOSITORY_URI = "areeb/frontend"
 
