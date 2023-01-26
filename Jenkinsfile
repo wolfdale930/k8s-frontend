@@ -12,7 +12,8 @@ pipeline {
             }
         }
         stage('Testing Docker') { 
-            steps { 
+            steps {
+                sh "echo \$HOME"
                 sh "docker ps"
             }
         }
