@@ -6,18 +6,10 @@ pipeline {
                 sh "echo 'building..'"
             }
         }
-        stage('Test'){
-            steps {
-                sh "echo 'Testing...'" 
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh "echo 'Deploying...'"
-            }
-        }
         stage('Testing Kubectl') { 
             steps { 
+                sh "whereis kubectl"
+                sh "echo $KUBECONFIG"
                 sh "kubectl cluster-info"
             }
         }
