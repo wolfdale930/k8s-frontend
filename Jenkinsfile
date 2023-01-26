@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Testing Kubectl') { 
             steps { 
-                sh "kubectl"
+                sh "kubectl get pods -A"
             }
         }
     }
