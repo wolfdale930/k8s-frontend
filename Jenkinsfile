@@ -7,8 +7,9 @@ pipeline {
             }
         }
         stage('Testing Kubectl') { 
-            steps { 
-                sh "kubectl get pods -A"
+            steps {
+              sh "kubectl config view" 
+               sh "kubectl get pods -A"
             }
         }
         stage('Testing Docker') { 
