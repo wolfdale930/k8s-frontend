@@ -10,6 +10,7 @@ pipeline {
             steps { 
                 sh "whereis kubectl"
                 sh "kubectl config view"
+                sh "kubectl get pods -A"
             }
         }
     }
