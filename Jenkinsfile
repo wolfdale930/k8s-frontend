@@ -9,8 +9,7 @@ pipeline {
         stage('Testing Kubectl') { 
             steps { 
                 sh "whereis kubectl"
-                sh "echo $KUBECONFIG"
-                sh "kubectl cluster-info"
+                sh "kubectl config view"
             }
         }
     }
