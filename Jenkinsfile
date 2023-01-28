@@ -1,7 +1,6 @@
 pipeline { 
     agent any
     stages {
-        def REPOSITORY_URI = "areeb2512/k8-frontend"
         stage('Build') { 
             steps {
                 sh "echo 'building..'"
