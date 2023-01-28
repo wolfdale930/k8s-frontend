@@ -17,7 +17,7 @@ pipeline {
                 sh "echo 'pushing image..'"
                 withCredentials([usernamePassword(credentialsId: 'docker-login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh 'docker login --username="${USERNAME}" --password="${PASSWORD}"'
-                    sh "docker push ${REPOSITORY_URI} ." 
+                    sh "docker push ${REPOSITORY_URI}" 
                 }
             }
         }
