@@ -6,6 +6,8 @@ pipeline {
                 sh "echo 'building..'"
                 withCredentials([usernamePassword(credentialsId: 'docker-login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh 'docker login --username="${USERNAME}" --password="${PASSWORD}"'
+                    sh 'pwd'
+                    sh 'ls'
                     sh "docker build -t areeb2512/k8-frontend ."
                     sh 'docker image ls' 
                 }
