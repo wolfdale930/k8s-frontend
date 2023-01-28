@@ -8,7 +8,7 @@ pipeline {
                     sh 'docker login --username="${USERNAME}" --password="${PASSWORD}"'
                     sh 'pwd'
                     sh 'ls'
-                    sh "docker build -t areeb2512/k8-frontend ."
+                    sh "docker build -t areeb2512/k8-frontend -f ./Dockerfile ."
                     sh 'docker image ls' 
                 }
             }
