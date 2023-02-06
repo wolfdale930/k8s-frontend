@@ -6,7 +6,7 @@ pipeline {
                 sh "echo 'building..'"
                 withCredentials([usernamePassword(credentialsId: 'docker-login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh 'docker login --username="${USERNAME}" --password="${PASSWORD}"'
-                    sh "docker build -t areeb2512/k8-frontend -f  ."
+                    sh 'docker build -t areeb2512/k8-frontend .'
                     sh '${BUILD_NUMBER}'
                 }
             }
