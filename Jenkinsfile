@@ -6,7 +6,7 @@ pipeline {
                 sh "echo 'building..'"
                 withCredentials([usernamePassword(credentialsId: 'docker-login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh 'docker login --username="${USERNAME}" --password="${PASSWORD}"'
-                    sh 'docker build -t areeb2512/k8-frontend:${BUILD_NUMBER} .'
+                    sh 'docker build -t areeb2512/k8-frontend:latest .'
                 }
             }
         }
@@ -15,7 +15,7 @@ pipeline {
                 sh "echo 'pushing image..'"
                 withCredentials([usernamePassword(credentialsId: 'docker-login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh 'docker login --username="${USERNAME}" --password="${PASSWORD}"'
-                    sh 'docker push areeb2512/k8-frontend:${BUILD_NUMBER}' 
+                    sh 'docker push areeb2512/k8-frontend:latest' 
                 }
             }
         }
