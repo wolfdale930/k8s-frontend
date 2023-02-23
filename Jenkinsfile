@@ -19,5 +19,11 @@ pipeline {
                 }
             }
         }
+        stage('Deploy') { 
+            steps {
+                sh "echo 'deploying..'"
+                sh "helm upgrade --wait --timeout 60 --set image.tag=latest k8-frontend ./helm-chart"
+            }
+        }
     }
 }
