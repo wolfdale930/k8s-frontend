@@ -4,10 +4,14 @@ pipeline {
         stage('Build') { 
             steps {
                 sh "echo 'building..'"
-                withCredentials([usernamePassword(credentialsId: 'docker-login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh 'docker login --username="${USERNAME}" --password="${PASSWORD}"'
-                    sh 'docker build -t areeb2512/k8-frontend:latest .'
+                sh 'docker build -t areeb2512/k8-frontend:latest .'
                 }
+            }
+        }
+        stage('Test') { 
+            steps {
+                sh "echo 'testing..'"
+                sh "docker run areeb2512/k8-frontend:latest npm run test "
             }
         }
         stage('Push Image') { 
