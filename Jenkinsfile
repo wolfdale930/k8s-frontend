@@ -5,7 +5,6 @@ pipeline {
             steps {
                 sh "echo 'building..'"
                 sh 'docker build -t areeb2512/k8-frontend:latest .'
-                }
             }
         }
         stage('Test') { 
