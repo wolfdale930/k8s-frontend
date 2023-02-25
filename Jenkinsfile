@@ -11,8 +11,8 @@ pipeline {
             steps {
                 sh "echo 'testing..'"
                 sh "docker pull node:18-alpine3.15"
-                sh 'echo "${pwd}"'
-                sh 'docker run -w /app -v "${pwd}":/app node:18-alpine3.15 ls'
+                sh 'echo "$WORKSPACE"'
+                sh 'docker run -w /app -v "$WORKSPACE":/app node:18-alpine3.15 ls'
             }
         }
         stage('Push Image') { 
