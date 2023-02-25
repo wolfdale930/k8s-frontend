@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh "echo 'testing..'"
                 sh "docker pull node:18-alpine3.15"
-                sh "docker run -w /app -v " + ${workspace} + ":/app node:18-alpine3.15 npm run test"
+                sh 'docker run -w /app -v "${workspace}":/app node:18-alpine3.15 npm run test'
             }
         }
         stage('Push Image') { 
