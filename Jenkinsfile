@@ -10,7 +10,8 @@ pipeline {
         stage('Test') { 
             steps {
                 sh "echo 'testing..'"
-                sh "docker run areeb2512/k8-frontend:latest npm run test "
+                sh "docker pull node:18-alpine3.15"
+                sh "docker run -w /app -v $(pwd):/app node:18-alpine3.15 npm run test"
             }
         }
         stage('Push Image') { 
