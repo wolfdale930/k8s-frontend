@@ -11,6 +11,7 @@ pipeline {
             steps {
                 sh "echo 'testing..'"
                 sh "docker pull node:18-alpine3.15"
+                sh 'echo "${workspace}"'
                 sh 'docker run -w /app -v "${workspace}":/app node:18-alpine3.15 ls'
             }
         }
