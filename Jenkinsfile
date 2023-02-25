@@ -12,7 +12,7 @@ pipeline {
                 sh "echo 'testing..'"
                 sh "docker pull node:18-alpine3.15"
                 sh 'echo "$WORKSPACE"'
-                sh 'docker run -w /app -v "$WORKSPACE":/app node:18-alpine3.15 ls'
+                sh 'docker run -w /app -v "$WORKSPACE":/app:z node:18-alpine3.15 ls'
             }
         }
         stage('Push Image') { 
