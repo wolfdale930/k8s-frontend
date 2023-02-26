@@ -19,7 +19,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh "echo 'deploying..'"
-                sh "helm install --set image.tag=latest k8-frontend ./helm-chart"
+                sh "helm upgrade -i --set image.tag=latest k8-frontend ./helm-chart"
             }
         }
     }
