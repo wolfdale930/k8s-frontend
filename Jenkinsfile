@@ -7,14 +7,6 @@ pipeline {
                 sh 'docker build -t areeb2512/k8-frontend:latest .'
             }
         }
-        stage('Test') { 
-            steps {
-                sh "echo 'testing..'"
-                sh "docker pull node:18-alpine3.15"
-                sh 'echo "$WORKSPACE"'
-                sh 'docker run -w /app -v "$WORKSPACE":/app:z node:18-alpine3.15 ls'
-            }
-        }
         stage('Push Image') { 
             steps {
                 sh "echo 'pushing image..'"
