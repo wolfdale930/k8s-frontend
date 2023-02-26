@@ -4,6 +4,5 @@ RUN npm cache clean --force
 COPY . .
 RUN npm install
 RUN npm run build
-RUN ls
 COPY dist /usr/share/nginx/html
 EXPOSE 80 443
